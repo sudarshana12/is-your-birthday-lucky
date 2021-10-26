@@ -5,10 +5,23 @@ const checkNumberButton = document.querySelector("#check-number");
 
 checkNumberButton.addEventListener('click', checkBirthDateIsLucky)
 
+const outputBox = document.querySelector("#output-box");
+
+function compareValues(sum,luckyNumber){
+    if(sum%luckyNumber === 0){
+        outputBox.innerText = "Your birthday is lucky 😊";
+    } else{
+        outputBox.innerText = "Your birthday is not lucky 😭";
+    }
+}
+
 function checkBirthDateIsLucky(){
     const dob = dateOfBirth.value;
     const sum = calculateSum(dob);
-    console.log(sum);
+    if(sum&&dob)
+    compareValues(sum,luckyNumber.value)
+    else
+    outputBox.innerText = "Please enter both the fields 😠"
 
 }
 
